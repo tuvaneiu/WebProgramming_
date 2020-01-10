@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Registration Form</title>
+	<meta charset="utf-8">
+
+	<style type="text/css">
+		.center{
+			text-align: center;
+		}
+		.title{
+			width: 100px;
+			text-align: right;
+		}
+		.number{
+			width: 40px;
+		}
+		.five{
+			width: 80px;
+		}
+		.color{
+			background-color: #00ffff;
+		}
+	</style>
+</head>
+<body>
+	<form name="form" method="get" action="">
+		<table border="1">
+			<tr>
+				<td class="title"><label for="last"><b>Last Name</b></label></td>
+				<td><input type="text" name="Last" id="last" placeholder="Nakov"></td>
+			</tr>
+			<tr>
+				<td class="title"><label for="first"><b>First Name</b></label></td>
+				<td><input type="text" name="First" id="first" placeholder="Svetlin"></td>
+			</tr>
+			<tr>
+				<td class="title"><label for="address"><b>Address</b></label></td>
+				<td><textarea name="Address" id="address" placeholder="17 Hristo Botev Str. floor 3, apt. 12 "></textarea></td>
+			</tr>
+			<tr>
+				<td class="title"><label for="city"><b>City</b></label></td>
+				<td>
+					<table border="1" width="100%">
+						<tr>
+							<td><input type="text" name="City" id="city" placeholder="Kaspichan"></td>
+							<td><label for="state"><b>State</b></label></td>
+							<td><input type="text" class="number" name="State" id="state"></td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<tr>
+				<td class="title"><label for="code"><b>Zip/Postal Code</b></label></td>
+				<td><input type="text" class="number" name="Code" id="code" placeholder="9325"></td>
+			</tr>
+			<tr>
+				<td class="title"><label for="country"><b>Country</b></label></td>
+				<td>
+					<select name="Country" id="country">
+						<option value="value1" selected="selected">Hồ Chí Minh</option>
+						<option value="value2">Hà Nội</option>
+						<option value="value3">Hà Giang</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td class="title"><label for="phone"><b>Phone (country code, area code, number)</b></label></td>
+				<td>
+					(+<input type="text" class="number" name="Phone" id="phone" placeholder="359">)
+					<input type="text" class="number" name="Phone" id="phone" placeholder="88">-
+					<input type="text" class="five" name="Phone" id="phone" placeholder="8334343">
+				</td>
+			</tr>
+			<tr>
+				<td class="title"><label for="email"><b>E-mail</b></label></td>
+				<td><input type="email" name="Email" id="email" placeholder="tu@gmail.com"></td>
+			</tr>
+			<tr>
+				<td class="title"><label for="birth"><b>Birth date</b></label></td>
+				<td>
+					Month<input type="text" class="number" name="Birth" id="birth" placeholder="06">
+					Day<input type="text" class="number" name="Birth" id="birth" placeholder="14">
+					Year(4 digit)<input type="text" class="number" name="Birth" id="birth" placeholder="1980">
+				</td>
+			</tr>
+			<tr>
+				<td class="title"><label for="gender"><b>Gender</b></label></td>
+				<td>
+					<select name="Gender" id="gender">
+						<option value="value1" selected="selected">Male</option>
+						<option value="value2">Female</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td class="title"><label for="date"><b>Starting date</b></label></td>
+				<td>
+					<input type="radio" name="radioBtn" id="date">Spring 2006
+					<input type="radio" name="radioBtn" id="date">Summer 2006
+				</td>
+			</tr>
+			<tr>
+				<td class="title"><label for="comment"><b>Comments/Questions</b></label></td>
+				<td><textarea name="Comment" id="comment" placeholder="Please send me something"></textarea></td>
+			</tr>
+			<tr class="color">
+				<td class="center" colspan="2">
+					<input type="submit" name="Submit" value="Submit">
+					<input type="reset" name="Reset" value="Clear This Form">
+				</td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>
