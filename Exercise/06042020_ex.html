@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Layout Assignment</title>
+	<meta charset="utf-8">
+
+	<style type="text/css">
+		header{
+			background-color: grey;
+			color: white;
+			padding: 20px;
+		}
+		footer{
+			background-color: grey;
+			color: white;
+			padding: 20px;
+			padding-top: 40px;
+			padding-bottom: 40px;
+		}
+		#sec_left{
+			width: 25%;
+			float: left;
+		}
+		#sec_right{
+			width: 75%;
+			float: right;
+		}
+		#clearFloat:after{
+			content: " ";
+			clear: both;
+			display: block;
+			height: 0;
+		}
+		li{
+			display: block;
+			background-color: #33B5E6;
+			color: white;
+			padding: 15px;
+			margin-top: 10px;
+			margin-bottom: 10px;
+			margin-right: 40px;
+			margin-left: 0px;
+		}
+		h2{
+			font-size: 40px;
+		}
+		p{
+			font-size: 23px;
+		}
+		h1{
+			font-size: 40px;
+		}
+	</style>
+</head>
+<body>
+	<header>
+		<h1>Công ty ABC</h1>
+	</header>
+	<main>
+		<section id="clearFloat">
+			<section id="sec_left">
+				<ul type="none">
+					<li>Danh mục 1</li>
+					<li>Danh mục 2</li>
+					<li>Danh mục 3</li>
+					<li>Danh mục 4</li>
+				</ul>
+			</section>
+			<section id="sec_right">
+				<h2>Tiêu đề</h2>
+				<p>Theo ông Phu, Việt Nam đã làm "sớm và quyết liệt". Ngay từ giai đoạn đầu của dịch, Việt Nam đã triển khai biện pháp mạnh mẽ là tập trung giám sát người nhập cảnh, đầu tiên là từ Trung Quốc, Hàn Quốc, sau đó đến châu Âu, Mỹ. Khi số người nhập cảnh giảm thì số ca nhiễm trong nhóm này cũng giảm.</p>
+				<p>Ở giai đoạn này, ông Phu đánh giá Việt Nam đã kiểm soát và xét nghiệm người nhập cảnh nhiều, nhưng xét nghiệm sàng lọc trong cộng đồng chưa nhiều. "Cần đẩy mạnh xét nghiệm trong cộng đồng, vì có xét nghiệm mới phát hiện nhiều, từ đó có cơ sở đánh giá được tình hình dịch", ông Phu nói.</p>
+			</section>
+		</section>
+	</main>
+	<footer>
+		Footer Text
+	</footer>
+</body>
+</html>
