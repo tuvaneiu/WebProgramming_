@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Bootstrap Exercise</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <style type="text/css">
+    	header{
+			background-color: grey;
+			color: white;
+			padding: 20px;
+			margin-bottom: 10px;
+		}
+		footer{
+			background-color: grey;
+			color: white;
+			padding: 20px;
+		}
+		li{
+			background-color: #33B5E6;
+			color: white;
+			padding: 10px;
+			margin-bottom: 10px;
+		}
+		#sec_right{
+			border: 1px solid black
+		}
+		ul{
+			padding-left: 0;
+		}
+		.container-fluid{
+			margin-bottom: 20px;
+		}
+		h5{
+			text-decoration: underline red;
+			text-decoration-style: double;
+		}
+		#blue{
+			color: blue;
+		}
+		#mid{
+			border: 1px solid black;
+			border-radius: 10px;
+		}
+		#mid-img{
+			height: 75%;
+			width: 100%;
+			border-radius: 10px;
+		}
+		.col-md-9 img{
+			width: 35px;
+			height: 35px;
+		}
+		.row{
+			margin-top: 10px;
+			margin-bottom: 10px;
+		}
+		#red{
+			color: red;
+		}
+		#grey{
+			color: grey;
+			text-decoration: line-through;
+		}
+		#bot_item{
+			box-shadow: 1px 1px 2px 2px grey;
+			margin: 10px;
+			width: 20%;
+			text-align: center;
+			position: relative;
+		}
+		#bot_item img{
+			margin-bottom: 25px;
+			margin-top: 25px;
+		}
+		#ma{
+			margin-bottom: 25px;
+		}
+		#dis{
+			position: absolute;
+			top: 15px;
+			right: 15px;
+			border-radius: 5px;
+			background-color: red;
+			color: white;
+			padding: 10px;
+		}
+		@media only screen and (max-width: 600px){
+			#bot_item{
+				width: 100%;
+			}
+		}
+    </style>
+</head>
+<body>
+	<header>
+		Công ty ABC
+	</header>
+	<main>
+		<section class="container-fluid">
+			<section class="row">
+				<aside id="sec_left" class="col-md-3">
+					<ul type="none">
+						<li>The Flight</li>
+						<li>The City</li>
+						<li>The Island</li>
+						<li>The Food</li>
+					</ul>
+				</aside>
+				<section id="sec_right" class="col-md-9">
+					<h2>The City</h2>
+					<p>Chania is the capital of the chania region on the island of Crete. The city can be divided in two parts, the old town and the modern city.</p>
+					<p>You will learn more about web layout and responsive web pages in a later chapter.</p>
+				</section>
+			</section>
+		</section>
+		<section class="container-fluid">
+			<h5>TIN LIÊN QUAN</h5>
+			<section class="row">
+				<section class="col-md-6">
+					<section id="mid" class="container-fluid">
+						<section class="row">
+							<article class="col-md-3">
+								<img id="mid-img" src="https://icdn.dantri.com.vn/zoom/390_300//2020/04/11/ibra-11420-1586597509326.jpeg">
+							</article>
+							<article class="col-md-9">
+								<h6>Ibrahimovic đấu kỹ thuật trực tuyến với Pogba</h6>
+								<p>Trong thời gian tự cách ly tại nhà phòng dịch Covid-19, hai siêu sao hàng đầu của bóng đá thế giới là Ibrahimovic và Pogba có màn thách đấu kỹ thuật với nhau, thông qua hình thức trực tuyến.</p>
+								<small><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTuUryLBSLEAgz74AbkDnMPXbUK03wX82hhKeveZ1ZzwEDzBTPg"><b id="blue"> Mikeknowsme</b> 3 giờ trước</small>
+							</article>
+						</section>
+					</section>
+				</section>
+				<section class="col-md-6">
+					<section id="mid" class="container-fluid">
+						<section class="row">
+							<article class="col-md-3">
+								<img id="mid-img" src="https://icdn.dantri.com.vn/zoom/390_300//2020/04/11/ibra-11420-1586597509326.jpeg">
+							</article>
+							<article class="col-md-9">
+								<h6>Ibrahimovic đấu kỹ thuật trực tuyến với Pogba</h6>
+								<p>Trong thời gian tự cách ly tại nhà phòng dịch Covid-19, hai siêu sao hàng đầu của bóng đá thế giới là Ibrahimovic và Pogba có màn thách đấu kỹ thuật với nhau, thông qua hình thức trực tuyến.</p>
+								<small><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTuUryLBSLEAgz74AbkDnMPXbUK03wX82hhKeveZ1ZzwEDzBTPg"><b id="blue"> Mikeknowsme</b> 3 giờ trước</small>
+							</article>
+						</section>
+					</section>
+				</section>
+			</section>
+		</section>
+		<section class="container-fluid">
+			<h5>CÓ THỂ BẠN THÍCH</h5>
+			<section class="row justify-content-around">
+				<section id="bot_item">
+					<img src="https://cdn.cellphones.com.vn/media/catalog/product/cache/7/small_image/220x175/9df78eab33525d08d6e5fb8d27136e95/m/i/mi-cc9-pro-blue_1.jpg">
+					<article id="ma">
+						<b>Xiaomi Mi Note 10 Pro</b>
+						<br>
+						<br>
+						<b id="red">12.700.000 ₫  <b id="grey">14.990.000 ₫</b></b>
+					</article>
+					<article id="dis"><b>Giảm 15%</b></article>
+				</section>
+				<section id="bot_item">
+					<img src="https://cdn.cellphones.com.vn/media/catalog/product/cache/7/small_image/220x175/9df78eab33525d08d6e5fb8d27136e95/m/i/mi-cc9-pro-blue_1.jpg">
+					<article id="ma">
+						<b>Xiaomi Mi Note 10 Pro</b>
+						<br>
+						<br>
+						<b id="red">12.700.000 ₫  <b id="grey">14.990.000 ₫</b></b>
+					</article>
+					<article id="dis"><b>Giảm 15%</b></article>
+				</section>
+				<section id="bot_item">
+					<img src="https://cdn.cellphones.com.vn/media/catalog/product/cache/7/small_image/220x175/9df78eab33525d08d6e5fb8d27136e95/m/i/mi-cc9-pro-blue_1.jpg">
+					<article id="ma">
+						<b>Xiaomi Mi Note 10 Pro</b>
+						<br>
+						<br>
+						<b id="red">12.700.000 ₫  <b id="grey">14.990.000 ₫</b></b>
+					</article>
+					<article id="dis"><b>Giảm 15%</b></article>
+				</section>
+				<section id="bot_item">
+					<img src="https://cdn.cellphones.com.vn/media/catalog/product/cache/7/small_image/220x175/9df78eab33525d08d6e5fb8d27136e95/m/i/mi-cc9-pro-blue_1.jpg">
+					<article id="ma">
+						<b>Xiaomi Mi Note 10 Pro</b>
+						<br>
+						<br>
+						<b id="red">12.700.000 ₫  <b id="grey">14.990.000 ₫</b></b>
+					</article>
+					<article id="dis"><b>Giảm 15%</b></article>
+				</section>
+			</section>
+		</section>
+	</main>
+	<footer>
+		Footer
+	</footer>
+</body>
+</html>
