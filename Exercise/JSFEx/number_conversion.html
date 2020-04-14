@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Numbers Conversion</title>
+	<meta charset="utf-8">
+</head>
+<body>
+	<section>
+		<b>Convert floating-point to integer number:</b>
+		<p>valueDouble = 8.75</p>
+		<p>valueInt = valueDouble | 0</p>
+		<p>valueInt = <button onclick="float()">Result</button></p>
+	</section>
+	<hr>
+	<section>
+		<b>Convert to integer number with rounding:</b>
+		<p>valueDouble = 8.75</p>
+		<p>roundedInt = (valueDouble + 0.5) | 0</p>
+		<p>roundedInt = <button onclick="rounding()">Result</button></p>
+	</section>
+	<hr>
+	<section>
+		<b>Convert string to integer:</b>
+		<p>string = "1234"</p>
+		<p>valueInt = string | 0 + 1</p>
+		<p>valueInt = <button onclick="string()">Result</button></p>
+	</section>
+
+	<script type="text/javascript">
+		function float(){
+			let x = 8.75;
+			let i = x | 0;
+			alert(i);
+		}
+		function rounding(){
+			let x = 8.75;
+			let i = (x + 0.5) | 0;
+			alert(i);
+		}
+		function string(){
+			let x = "1234";
+			let i = x | 0 + 1;
+			alert(i);
+		}
+	</script>
+</body>
+</html>
