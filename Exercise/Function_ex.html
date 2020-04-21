@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Function Exercises</title>
+	<meta charset="utf-8">
+
+	<style type="text/css">
+		fieldset{
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<fieldset>
+		<legend>Print all elements of an array</legend>
+		<label for="name">Name :</label>
+		<input type="name" name="Name" id="name">
+		<br>
+		<br>
+		<button onclick="addSt()">Ok</button>
+		<br>
+		<br>
+		<button onclick="printArr()">Print</button>
+	</fieldset>
+	<hr>
+	<hr>
+	<fieldset>
+		<legend>Delete elements have the same value as a key</legend>
+		<label for="name1">Name :</label>
+		<input type="text" name="Name1" id="name1">
+		<br>
+		<br>
+		<button onclick="addEle()">Ok</button>
+		<br>
+		<br>
+		<label for="key">Key :</label>
+		<input type="text" name="Key" id="key">
+		<br>
+		<br>
+		<button onclick="callCheck()">Delete</button>
+	</fieldset>
+	<hr>
+	<hr>
+	<fieldset>
+		<legend>Concatenate</legend>
+		<button onclick="printConcat()">Concatenate</button>
+	</fieldset>
+
+	<script type="text/javascript">
+		var stList = [];
+		function addSt(){
+			var stName = document.getElementById("name").value;
+			stList.push(stName);
+			document.getElementById("name").value = "";
+		}
+		function toStringArr(arr){
+			var str = "";
+			for(var i = 0; i < arr.length; i++){
+				str+=(arr[i]+"\n");
+			}
+			alert(str);
+		}
+		function printArr(){
+			toStringArr(stList);
+			stList = [];
+		}
+
+
+		var list = [];
+		function addEle(){
+			var a = document.getElementById("name1").value;
+			list.push(a);
+			document.getElementById("name1").value = "";
+		}
+		function printEle(){
+			toStringArr(list);
+			list = [];
+		}
+		var count = 0;
+		function check(a){
+			var x = document.getElementById("key").value
+			for(var i = 0; i < a; i++){
+				if (x == list[i]){
+					list.splice(i,1);
+					count++;
+					check(a-1);
+					break;
+				}
+			}
+		}
+		function callCheck(){
+			check(list.length);
+			if(count!=0){
+				count = 0;
+				alert("Deleted")
+				printEle();
+			}else{
+				alert("Key doesn't exist in array");
+				list = [];
+			}
+			document.getElementById("key").value = "";
+		}
+
+		function concatenate(){
+			var b =`
+			<section class="col-md-3 col-12">
+				<article id="bot_item">
+					<img src="https://cdn.cellphones.com.vn/media/catalog/product/cache/7/small_image/220x175/9df78eab33525d08d6e5fb8d27136e95/m/i/mi-cc9-pro-blue_1.jpg">
+					<article id="ma">
+						<b id="disblock">Xiaomi Mi Note 10 Pro</b>
+						<b id="red">12.700.000 ₫  <b id="grey">14.990.000 ₫</b></b>
+					</article>
+					<article id="dis"><b>Giảm 15%</b></article>
+				</article>
+			</section>
+			`;
+			return b.concat(b,b,b);
+		}
+		function printConcat(){
+			console.log(concatenate());
+			alert("Console!!!");
+		}
+	</script>
+</body>
+</html>
