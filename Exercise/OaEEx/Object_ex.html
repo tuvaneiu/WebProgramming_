@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Object Exercise</title>
+	<meta charset="utf-8">
+
+	<style type="text/css">
+		fieldset{
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<fieldset>
+		<legend>Display name</legend>
+		<button onclick="alert(displayName())">Display</button>
+	</fieldset>
+	<fieldset>
+		<legend>Delete by id</legend>
+		<label for="id">ID :</label>
+		<input type="text" name="Id" id="id" placeholder="From 1 to 5...">
+		<br>
+		<br>
+		<button onclick="deleteProById()">Delete</button>
+	</fieldset>
+
+	<script type="text/javascript">
+		let listPro = [
+			{Id: '1', Name: 'Phone', Image: 'Link', Price: 400, DiscountedPrice: 399},
+			{Id: '2', Name: 'Laptop', Image: 'Link', Price: 400, DiscountedPrice: 399},
+			{Id: '3', Name: 'Bike', Image: 'Link', Price: 400, DiscountedPrice: 399},
+			{Id: '4', Name: 'Car', Image: 'Link', Price: 400, DiscountedPrice: 399},
+			{Id: '5', Name: 'TV', Image: 'Link', Price: 400, DiscountedPrice: 399},
+		];
+
+		function displayName(){
+			let str = "";
+			for(var i=0; i<listPro.length; i++){
+				str += (listPro[i].Name + '\n')
+			}
+			return str;
+		}
+
+		function deleteProById(){
+			let val = document.getElementById('id').value;
+			for (var i = 0; i < listPro.length; i++) {
+				if (val == listPro[i].Id) {
+					listPro.splice(i,1);
+					alert('Deleted');
+					alert(showPro());
+					document.getElementById('id').value = "";
+					break;
+				}
+			}
+		}
+
+		function showPro(){
+			let toStr = "";
+			for(var i=0; i<listPro.length; i++){
+				toStr += (listPro[i].Id + ' ' + listPro[i].Name + ' ' + listPro[i].Image + ' ' + listPro[i].Price + ' ' + listPro[i].DiscountedPrice + '\n')
+			}
+			return toStr;
+		}
+	</script>
+</body>
+</html>
