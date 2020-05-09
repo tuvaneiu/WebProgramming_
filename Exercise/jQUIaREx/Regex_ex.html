@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Regex</title>
+	<meta charset="utf-8">
+</head>
+<body>
+
+	<script type="text/javascript">
+		let academyRegex = /telerik\s/gi;
+
+		let text = 'George is studying Javascript at Telerik Academy, while Jimmy goes to Telerik Kids Academy.';
+
+		let isMatch = academyRegex.test(text);
+		console.log(isMatch);
+
+		let matches = text.match(academyRegex);
+		for (var i = 0; i < matches.length; i++) {
+			console.log(matches[i]);
+		}
+
+		while(currentMatch = academyRegex.exec(text)){
+			console.log(currentMatch);
+		}
+
+		let text1 = 'text   with   lots  of        spaces\n' + '    and lost of tabulations    ';
+		console.log(text1.replace(/\s\s+/g, ' '));
+
+		let expression = '4+5*count-initialCount+1';
+		let operands = expression.split('+');
+		console.log(operands);
+
+		let text2 = 'Javascript is awesome!';
+		let index = text2.search(/is/);
+		console.log(index);
+	</script>
+</body>
+</html>
