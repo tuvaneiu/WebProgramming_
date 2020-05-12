@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>CSS Menu</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style type="text/css">
+    	.item{
+    		position: relative;
+    		display: block;
+    		float: left;
+    		border-left: 1px solid white;
+    	}
+    	.item a p{
+    		margin: 10px 25px;
+    		font-size: 16px;
+    	}
+    	.item:last-child{
+    		border-right: 1px solid white;
+    	}
+    	ul{
+    		margin-bottom: 0;
+    		padding-left: 0;
+    	}
+    	#dropitem{
+    		display: none;
+    		position: absolute;
+    		float: none;
+    		background-color: #284A70;
+    	}
+    	#dropitem li{
+    		border-bottom: 1px solid white;
+			float: left;
+			text-align: left;
+			clear: right;
+			min-width: 207px;
+    	}
+    	#dropitem li a p{
+    		font-size: 14px;
+    	}
+    	#drop:hover > #dropitem{
+    		display: block;
+    	}
+    	li a{
+    		color: white;
+    	}
+    	li a:hover{
+    		text-decoration: none;
+    		color: white;
+    	}
+    	li:hover{
+    		background-color: orange;
+    	}
+    	.clearAfter:after{
+			content: "";
+			display: block;
+			clear: both;
+			height: 0;
+		}
+		#nav-top{
+			background-color: #284A70;
+    		text-align: center;
+    		border-bottom: solid 4px orange;
+    		color: white;
+		}
+    </style>
+</head>
+<body>
+	<section id="nav-top">
+		<section class="container">
+			<nav>
+				<ul type="none" class="clearAfter">
+					<li class="item"><a href=""><p>Trang chủ</p></a></li>
+					<li class="item" id="drop">
+						<a href=""><p>Khoa CNTT <i class="fa fa-caret-down"></i></p></a>
+						<ul type="none" id="dropitem">
+							<li><a href=""><p>Giới thiệu</p></a></li>
+							<li><a href=""><p>Lời ngỏ từ Trưởng khoa</p></a></li>
+							<li><a href=""><p>Giảng viên</p></a></li>
+							<li><a href=""><p>Hình ảnh CIT</p></a></li>
+							<li><a href=""><p>Video</p></a></li>
+						</ul>
+					</li>
+					<li class="item" id="drop">
+						<a href=""><p>Chương trình đào tạo <i class="fa fa-caret-down"></i></p></a>
+						<ul type="none" id="dropitem">
+							<li><a href=""><p>Ngành Kỹ thuật phần mềm</p></a></li>
+							<li><a href=""><p>Ngành Mạnh máy tính và Truyền thông Dữ liệu</p></a></li>
+							<li><a href=""><p>Ngành Khoa học máy tính</p></a></li>
+						</ul>
+					</li>
+					<li class="item"><a href=""><p>Tin tức</p></a></li>
+					<li class="item"><a href=""><p>Sự kiện</p></a></li>
+					<li class="item"><a href=""><p>Nghiên cứu khoa học</p></a></li>
+					<li class="item" id="drop">
+						<a href=""><p>Giáo vụ <i class="fa fa-caret-down"></i></p></a>
+						<ul type="none" id="dropitem">
+							<li><a href=""><p>Biểu mẫu</p></a></li>
+							<li><a href=""><p>Thông báo học vụ</p></a></li>
+						</ul>
+					</li>
+					<li class="item"><a href=""><p>Liên hệ</p></a></li>
+				</ul>
+			</nav>
+		</section>
+	</section>
+	<section>
+		<img src="https://cit.eiu.edu.vn/wp-content/uploads/2019/02/uc-1.jpg">
+	</section>
+</body>
+</html>
