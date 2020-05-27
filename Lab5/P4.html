@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Flower Shop</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<style type="text/css">
+		#ft-top{
+			border-bottom: 2px solid #652d92;
+			border-top: 2px solid #652d92;
+			padding-bottom: 15px;
+			padding-top: 15px; 
+			margin-top: 30px;
+		}
+		.mt-0{
+			color: #652d92;
+		}
+		#ft-top-icon{
+			background-color: #652d92;
+			width: 80px;
+			height: 80px;
+			text-align: center;
+		}
+		#ft-top-icon i{
+			color: white;
+			margin-top: 15px;
+		}
+		.media{
+			margin-bottom: 15px;
+			margin-top: 15px;
+		}
+		#ft-mid{
+			margin-top: 30px;
+			background-color: #f8f8f8;
+			padding-top: 40px;
+			padding-bottom: 40px;
+		}
+		hr{
+			margin-top: 10px;
+			margin-bottom: 30px;
+			width: 50px;
+			height: 2px;
+			background-color: #652d92;
+			margin-left: 0;
+		}
+		#ft-mid-list{
+			list-style-type: none;
+			padding-left: 0;
+		}
+		#ft-mid-list li a:hover{
+			text-decoration: none;
+			color: red;
+		}
+		#ft-mid-list li a{
+			color: black;
+		}
+		#ft-mid-list-last{
+			list-style-type: none;
+			padding-left: 0;
+		}
+		#ft-mid-list-last-left{
+			display: inline-block;
+			width: 40%;
+			font-weight: bold;
+			float: left;
+		}
+		#ft-mid-list-last-right{
+			display: inline-block;
+			width: 60%;
+		}
+		#ft-mid li{
+			margin-bottom: 10px;
+		}
+		#ft-mid-list-last li a{
+			color: black;
+		}
+		#ft-mid-list-last li a:hover{
+			text-decoration: none;
+			color: red;
+		}
+		#ft-mid-list-last a i{
+			padding-right: 10px;
+		}
+		#ft-bot{
+			background-color: #2c3e50;
+			color: white;
+			text-align: center;
+			padding-top: 10px;
+			padding-bottom: 10px;
+		}
+		#head-top{
+			background-color: #2c3e50;
+			color: white;
+			padding-bottom: 10px;
+			padding-top: 10px;
+		}
+		#head-top a{
+			color: white;
+		}
+		#head-top a:hover{
+			text-decoration: none;
+			color: red;
+		}
+		#head-top-right{
+			text-align: right;
+		}
+		#head-mid input{
+			border: 1px solid grey;
+			color: grey;
+			background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTypsAoHdtTHO1M4piDQfnhmT8v00Sno78kdttxdccGYcbipeA7&usqp=CAU");
+			background-size: 20px;
+			background-repeat: no-repeat;
+			border-radius: 2px;
+			background-position: right;
+		}
+		#shopping-icon{
+			background-color: red;
+			font-size: 20px;
+			color: white;
+			border-radius: 50%;
+		}
+		#shopping-icon i{
+			padding: 15px;
+		}
+		#red{
+			color: red;
+		}
+		#quan-pri{
+			padding-left: 5px;
+		}
+		#head-mid{
+			padding-top: 10px;
+			padding-bottom: 10px;
+		}
+		.conso{
+			font-family: Edwardian Script ITC;
+			font-size: 50px;
+		}
+		#www{
+			padding-left: 50px;
+		}
+		.purple{
+			color: #652d92;
+		}
+		#sear{
+			text-align: center;
+			padding-top: 35px;
+			padding-bottom: 20px;
+		}
+		#cart{
+			padding-top: 20px;
+			padding-bottom: 20px;
+		}
+		#head-bot{
+			background-color: #652d92;
+			position: relative;
+		}
+		#head-bot ul{
+			margin-bottom: 0;
+			padding-left: 0;
+		}
+		.item a:hover{
+			text-decoration: none;
+		}
+		.item a{
+			color: white;
+		}
+		.item:hover{
+			background-color: #7939a9;
+		}
+		.item{
+			display: inline-block;
+			position: relative;
+		}
+		.item a p{
+			margin: 15px 20px;
+		}
+		#drop:hover > #dropitem{
+    		display: block;
+    	}
+		#dropitem{
+    		display: none;
+    		position: absolute;
+    		background-color: white;
+    		box-shadow: 0px 5px 2px #ccc;
+    	}
+    	#dropitem li{
+    		display: block;
+    		width: 100%;
+			min-width: 150px;
+    	}
+    	#dropitem li a{
+    		color: #652d92;
+    	}
+    	#dropitem li:hover{
+    		background-color: #652d92;
+    	}
+    	#dropitem li:hover > a{
+    		color: white;
+    	}
+    	#dropitem li a p{
+    		padding: 10px 15px;
+    		margin: 0;
+    	}
+    	#head-img img{
+    		width: 100%!important;
+    	}
+    	#head-img{
+    		margin-top: 30px;
+    	}
+    	#menu-mobile i{
+    		color: white;
+    		font-size: 30px;
+    		margin-top: 15px;
+    		margin-bottom: 15px;
+    	}
+    	#menu-mobile{
+    		display: none;
+    	}
+    	@media only screen and (max-width: 700px){
+    		#head-bot-navi{
+	    		display: none;
+	    	}
+	    	#menu-mobile{
+	    		display: block;
+	    	}
+	    	#head-top-right{
+	    		float: left;
+	    	}
+    	}
+    	.clearAfter:after{
+			content: "";
+			display: block;
+			clear: both;
+			height: 0;
+		}
+		#body-title{
+			border-top: 1px dotted black;
+			border-bottom: 1px dotted black;
+			border-left: 4px solid #652d92;
+			background-color: #f8f8f8;
+			padding-left: 10px;
+			padding-top: 5px;
+			padding-bottom: 5px;
+		}
+		#body-main{
+			margin-top: 30px;
+		}
+		#item-img a img{
+			width: 100%!important;
+		}
+		#body-dis-pro{
+			margin-bottom: 20px;
+		}
+		#body-dis-pro-item{
+			margin-top: 20px;
+			background-color: #f8f8f8;
+			position: relative;
+		}
+		#item-name{
+			padding-left: 10px;
+			padding-top: 10px;
+			font-weight: bold;
+		}
+		#item-name a{
+			color: black;
+		}
+		#item-name a:hover{
+			color: red;
+			text-decoration: none;
+		}
+		#item-code{
+			font-weight: bold;
+			padding-left: 10px;
+			padding-top: 10px;
+			color: #652d92;
+		}
+		#item-price{
+			padding-left: 10px;
+			padding-top: 10px;
+			text-decoration: line-through;
+			color: grey;
+		}
+		#item-dis-price{
+			padding-left: 10px;
+			padding-bottom: 10px;
+			font-weight: bold;
+			color: red;
+		}
+		#item-dis-zone{
+			position: absolute;
+			background-color: red;
+			color: white;
+			top: 0;
+			right: 0;
+			font-weight: bold;
+			padding: 7px 2px;
+		}
+		#body-recent-view{
+			margin-bottom: 20px;
+		}
+		#real-item-name{
+			padding-left: 10px;
+			padding-top: 5px;
+			font-weight: bold;
+		}
+		#real-item-name a{
+			color: black;
+		}
+		#real-item-name a:hover{
+			color: red;
+			text-decoration: none;
+		}
+		#real-item{
+			background-color: #f8f8f8;
+		}
+		#real-item-price{
+			padding-left: 10px;
+			padding-top: 30px;
+			text-decoration: line-through;
+			color: grey;
+		}
+		#real-item-dis-price{
+			padding-left: 10px;
+			font-weight: bold;
+			color: red;
+		}
+		#real-item-dis-zone{
+			position: absolute;
+			background-color: red;
+			color: white;
+			bottom: 10px;
+			right: 25px;
+			font-weight: bold;
+			padding: 7px 2px;
+		}
+		#body-recent-view-item{
+			padding-top: 20px;
+			padding-bottom: 20px;
+			border-bottom: 1px dotted black;
+		}
+		#body-news{
+			margin-bottom: 20px;
+		}
+		#body-news-name{
+			font-weight: bold;
+		}
+		#body-news-name a{
+			color: black;
+		}
+		#body-news-name a:hover{
+			color: red;
+			text-decoration: none;
+		}
+		#body-news-date{
+			color: grey;
+			padding-top: 10px;
+		}
+		#img-below-dis-pro a img{
+			width: 100%!important;
+			margin-bottom: 20px;
+			margin-top: 20px;
+		}
+		#img-below-dis-pro{
+			margin-top: 15px;
+		}
+	</style>
+</head>
+<body>
+	<header>
+		<section id="head-top">
+			<section class="container">
+				<section class="row">
+					<section class="col-md-4 col-12">
+						<i class="fa fa-phone" aria-hidden="true"> Hotline: <b>0000 000 000 - 0000 000 000</b></i>
+					</section>
+					<section class="col-md-4 col-12">
+						<i class="fa fa-map-marker"> Địa chỉ: <b>01 Văn Văn Thanh Tú, TP.HCM</b></i>
+					</section>
+					<section class="col-md-4 col-12">
+						<section id="head-top-right">
+							<a href=""><b>Đăng nhập</b></a> hoặc <a href=""><b>Tạo tài khoản mới</b></a>
+						</section>
+					</section>
+				</section>
+			</section>
+		</section>
+		<section id="head-mid">
+			<section class="container">
+				<section class="row">
+					<section class="col-md-7 col-12">
+						<div class="conso purple">
+							Violet on Wednesday
+						</div>
+						<div id="www" class="purple">www.violetonwednesday.com</div>
+					</section>
+					<section class="col-md-3 col-12">
+						<div id="sear">
+							<input type="text" name="Search" id="search" placeholder="Tìm kiếm...">
+						</div>
+					</section>
+					<section class="col-md-2 col-12">
+						<section id="cart">
+							<section class="row justify-content-center">
+								<div id="shopping-icon">
+									<i class="fa fa-shopping-cart"></i>
+								</div>
+								<div id="quan-pri">
+									3 sản phẩm
+									<br>
+									<b id="red">1,289,000 đ</b>
+								</div>
+							</section>
+						</section>
+					</section>
+				</section>
+			</section>
+		</section>
+		<nav id="head-bot">
+			<section class="container">
+				<section id="menu-mobile" class="clearAfter">
+					<a href=""><i class="fa fa-bars pull-left"> Danh mục</i></a>
+				</section>
+				<section id="head-bot-navi">
+					<ul type="none">
+						<li class="item"><a href=""><p>Trang chủ</p></a></li>
+						<li class="item"><a href=""><p>Hoa sinh nhật</p></a></li>
+						<li class="item"><a href=""><p>Hoa sinh nhật</p></a></li>
+						<li class="item"><a href=""><p>Hoa sinh nhật</p></a></li>
+						<li class="item"><a href=""><p>Hoa sinh nhật</p></a></li>
+						<li class="item"><a href=""><p>Chủ đề</p></a></li>
+						<li class="item" id="drop">
+							<a href=""><p>Thiết kế</p></a>
+							<ul type="none" id="dropitem">
+								<li><a href=""><p>Hoa cành</p></a></li>
+								<li><a href=""><p>Hoa bó</p></a></li>
+								<li><a href=""><p>Hoa giỏ</p></a></li>
+								<li><a href=""><p>Hoa kệ</p></a></li>
+								<li><a href=""><p>Hoa chậu</p></a></li>
+							</ul>
+						</li>
+						<li class="item"><a href=""><p>Chủ đề</p></a></li>
+						<li class="item"><a href=""><p>Chủ đề</p></a></li>
+					</ul>
+				</section>
+			</section>
+		</nav>
+		<section id="head-img">
+			<section class="container">
+				<a href="">
+					<img src="http://www.lynhflower.com/wp-content/uploads/2018/08/8.7.jpg">
+				</a>
+			</section>
+		</section>
+	</header>
+	<main>
+		<section id="body-main">
+			<section class="container">
+				<section class="row">
+					<section class="col-md-8 col-12">
+						<section id="body-dis-pro">
+							<section id="body-title">
+								<h4>Sản phẩm khuyến mãi</h4>
+							</section>
+							<section class="row" id="dis-pro">
+
+							</section>
+							<section id="img-below-dis-pro">
+								<section class="row">
+									<section class="col-md-6 col-12">
+										<a href=""><img src="http://www.lynhflower.com/wp-content/uploads/2018/08/8.7.jpg"></a>
+									</section>
+									<section class="col-md-6 col-12">
+										<a href=""><img src="http://www.lynhflower.com/wp-content/uploads/2018/08/8.7.jpg"></a>
+									</section>
+								</section>
+							</section>
+						</section>
+					</section>
+					<section class="col-md-4 col-12">
+						<section id="body-recent-view">
+							<section id="body-title">
+								<h4>Sản phẩm vừa xem</h4>
+							</section>
+							<section id="list-recent-view">
+								
+							</section>
+						</section>
+						<section id="body-news">
+							<section id="body-title">
+								<h4>Tin tức</h4>
+							</section>
+							<section id="list-body-news">
+								
+							</section>
+						</section>
+					</section>
+				</section>
+			</section>
+		</section>
+	</main>
+	<footer>
+		<section class="container">
+			<section id="ft-top">
+				<section class="row">
+					<section class="col-md-4 col-12">
+						<div class="media">
+							<div id="ft-top-icon" class="mr-3">
+								<i class="fa fa-truck fa-3x" aria-hidden="true"></i>
+							</div>
+							<div class="media-body">
+								<h5 class="mt-0">GIAO HÀNG MIỄN PHÍ</h5>
+								Chúng tôi giao hàng miễn phí trong nội thành
+							</div>
+						</div>
+					</section>
+					<section class="col-md-4 col-12">
+						<div class="media">
+							<div id="ft-top-icon" class="mr-3">
+								<i class="fa fa-weixin fa-3x" aria-hidden="true"></i>
+							</div>
+							<div class="media-body">
+								<h5 class="mt-0">TƯ VẤN TẬN TÂM</h5>
+								Chúng tôi giao hàng miễn phí trong nội thành
+							</div>
+						</div>
+					</section>
+					<section class="col-md-4 col-12">
+						<div class="media">
+							<div id="ft-top-icon" class="mr-3">
+								<i class="fa fa-usd fa-3x" aria-hidden="true"></i>
+							</div>
+							<div class="media-body">
+								<h5 class="mt-0">GIÁ THÀNH TỐT NHẤT</h5>
+								Chúng tôi giao hàng miễn phí trong nội thành
+							</div>
+						</div>
+					</section>
+				</section>
+			</section>
+		</section>
+		<section id="ft-mid">
+			<section class="container">
+				<section class="row">
+					<section class="col-md-3 col-12">
+						<h5>Hệ Thống</h5>
+						<hr>
+						<ul id="ft-mid-list">
+							<li><a href="">Link 1</a></li>
+							<li><a href="">Link 2</a></li>
+							<li><a href="">Link 3</a></li>
+							<li><a href="">Link 4</a></li>
+							<li><a href="">Link 5</a></li>
+							<li><a href="">Link 6</a></li>
+							<li><a href="">Link 7</a></li>
+						</ul>
+					</section>
+					<section class="col-md-3 col-12">
+						<h5>Hệ Thống</h5>
+						<hr>
+						<ul id="ft-mid-list">
+							<li><a href="">Link 1</a></li>
+							<li><a href="">Link 2</a></li>
+							<li><a href="">Link 3</a></li>
+							<li><a href="">Link 4</a></li>
+							<li><a href="">Link 5</a></li>
+						</ul>
+					</section>
+					<section class="col-md-3 col-12">
+						<h5>Hệ Thống</h5>
+						<hr>
+						<ul id="ft-mid-list">
+							<li><a href="">Link 1</a></li>
+							<li><a href="">Link 2</a></li>
+							<li><a href="">Link 3</a></li>
+							<li><a href="">Link 4</a></li>
+							<li><a href="">Link 5</a></li>
+							<li><a href="">Link 6</a></li>
+						</ul>
+					</section>
+					<section class="col-md-3 col-12">
+						<h5>Hệ Thống</h5>
+						<hr>
+						<ul id="ft-mid-list-last">
+							<li>
+								<div id="ft-mid-list-last-left">Địa chỉ</div>
+								<div id="ft-mid-list-last-right">01 Văn Văn Thanh Tú, TP.HCM</div>
+							</li>
+							<li>
+								<div id="ft-mid-list-last-left">Điện thoại</div>
+								<div id="ft-mid-list-last-right">00 00 00 00 00</div>
+							</li>
+							<li>
+								<div id="ft-mid-list-last-left">Hotline</div>
+								<div id="ft-mid-list-last-right">0000 000 000</div>
+							</li>
+							<li><b>Mọi ý kiến xin vui lòng gửi về</b></li>
+							<li><a href="">support@gmail.com</a></li>
+							<li>
+								<a href=""><i class="fa fa-facebook-square"></i></a>
+								<a href=""><i class="fa fa-youtube-square"></i></a>
+								<a href=""><i class="fa fa-twitter-square"></i></a>
+								<a href=""><i class="fa fa-google-plus-square"></i></a>
+								<a href=""><i class="fa fa-pinterest-square"></i></a>
+							</li>
+						</ul>
+					</section>
+				</section>
+			</section>
+		</section>
+		<section id="ft-bot">
+			© 2015 hhhhhhhhhhhhhhhhhhh
+		</section>
+	</footer>
+
+	<script type="text/javascript">
+		let disPro = document.getElementById('dis-pro');
+		disPro.innerHTML = concatenateDisPro();
+
+		let proRecent = document.getElementById('list-recent-view');
+		proRecent.innerHTML = concatenateProRecent();
+
+		let bodyNews = document.getElementById('list-body-news');
+		bodyNews.innerHTML = concatenateNews();
+
+		function concatenateDisPro(){
+			var b = "";
+			for(var i=0; i<8; i++){
+				b +=`
+				<section class="col-md-3 col-6">
+					<section id="body-dis-pro-item">
+						<article id="item-img">
+							<a href=""><img src="http://www.lynhflower.com/wp-content/uploads/2016/11/369-650.jpg"></a>
+						</article>
+						<article id="item-name"><a href="">Hoa hồng trắng</a></article>
+						<article id="item-code">VS035</article>
+						<article id="item-price">890,000 đ</article>
+						<article id="item-dis-price">807,500 đ</article>
+						<article id="item-dis-zone">-10%</article>
+					</section>
+				</section>
+				`;
+			}
+			return b;
+		}
+
+		function concatenateProRecent(){
+			var b = "";
+			for(var i=0; i<3; i++){
+				b +=`
+				<section id="body-recent-view-item">
+					<section id="real-item">
+						<section class="row">
+							<section class="col-md-4 col-4">
+								<article id="item-img">
+									<a href=""><img src="http://www.lynhflower.com/wp-content/uploads/2019/01/bo-hoa-sen-hong-022.jpg"></a>
+								</article>
+							</section>
+							<section class="col-md-8 col-8">
+								<article id="real-item-name"><a href="">Sen hồng</a></article>
+								<article id="real-item-price">460,000 đ</article>
+								<article id="real-item-dis-price">350,000 đ</article>
+								<article id="real-item-dis-zone">-30%</article>
+							</section>
+						</section>
+					</section>
+				</section>
+				`;
+			}
+			return b;
+		}
+
+		function concatenateNews(){
+			var b = "";
+			for(var i=0; i<3; i++){
+				b +=`
+				<section id="body-recent-view-item">
+					<section id="body-news-item">
+						<section class="row">
+							<section class="col-md-4 col-4">
+								<article id="item-img">
+									<a href=""><img src="http://www.lynhflower.com/wp-content/uploads/2016/08/hoa-sua.jpg"></a>
+								</article>
+							</section>
+							<section class="col-md-8 col-8">
+								<article id="body-news-name"><a href="">Bồi hồi những sắc hoa mùa thu</a></article>
+								<article id="body-news-date">
+									<i class="fa fa-calendar"></i>
+									15/5/2015
+								</article>
+							</section>
+						</section>
+					</section>
+				</section>
+				`;
+			}
+			return b;
+		}
+	</script>
+</body>
+</html>
