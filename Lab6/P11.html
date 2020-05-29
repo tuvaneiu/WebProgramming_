@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Compare Array of Objects</title>
+	<meta charset="utf-8">
+</head>
+<body>
+	<label for="name">Name: </label>
+	<input type="text" name="name" id="name" placeholder="Enter name...">
+	<label for="img">Image: </label>
+	<input type="img" name="img" id="img" placeholder="Enter image href...">
+	<label for="price">Price: </label>
+	<input type="price" name="price" id="price" placeholder="Enter price...">
+	<button onclick="add()">Add</button>
+	<button onclick="showPro()">Show list of products</button>
+	<button onclick="sortPro()">Sort</button>
+
+	<script type="text/javascript">
+		let arrPro = [];
+
+		function add(){
+			let name = document.getElementById("name").value;
+			let img = document.getElementById("img").value;
+			let price = document.getElementById("price").value;
+
+			arrPro.push({ProductName: name, ProductImage: img, ProductPrice: price});
+			alert("Added");
+
+			document.getElementById("name").value = "";
+			document.getElementById("img").value = "";
+			document.getElementById("price").value = "";
+		}
+
+		function showPro(){
+			let toStr = "";
+			for(var i=0; i<arrPro.length; i++){
+				toStr += (arrPro[i].ProductName + ' ' + arrPro[i].ProductImage + ' ' + arrPro[i].ProductPrice + '\n')
+			}
+			alert(toStr);
+		}
+
+		function compare( a, b ) {
+			if ( a.ProductPrice < b.ProductPrice ){
+				return -1;
+			}
+			if ( a.ProductPrice > b.ProductPrice ){
+				return 1;
+			}
+			return 0;
+		}
+
+		function sortPro(){
+			arrPro.sort(compare);
+			alert("Sorted");
+			showPro();
+		}
+	</script>
+</body>
+</html>

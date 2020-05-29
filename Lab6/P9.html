@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Replace multiple values</title>
+	<meta charset="utf-8">
+</head>
+<body>
+	<div>
+		<label for="name">Full sentence: </label>
+		<input type="text" name="full" id="full" placeholder="Enter full sentence...">
+		<label for="word">Word: </label>
+		<input type="text" name="word" id="word" placeholder="Enter a word...">
+		<input type="submit" name="submit" id="submit" value="Convert" onclick="cv()">
+	</div>
+
+	<script type="text/javascript">
+		function cv(){
+			let text = document.getElementById("full").value;
+
+			let value = document.getElementById("word").value;
+
+			let arrFull = text.split(" ");
+
+			let arrWord = value.split(" ");
+
+			let res = "";
+
+			for (var i = 0; i < arrFull.length; i++) {
+				for(var j=0; j<arrWord.length; j++) {
+					if (arrFull[i] == arrWord[j]) {
+						arrFull[i] = arrWord[j].toUpperCase();
+					}
+				}
+
+				res+=(arrFull[i]+" ");
+			}
+
+			alert(res);
+		}
+	</script>
+</body>
+</html>
