@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Alert Messages</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<script src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
+
+	<style type="text/css">
+		.red {
+			padding: 20px;
+			background-color: red;
+			color: white;
+			margin-bottom: 20px;
+		}
+		.green{
+			background-color: green;
+		}
+		.blue{
+			background-color: blue;
+		}
+		.orange{
+			background-color: orange;
+		}
+		.closebtn {
+			color: white;
+			font-weight: bold;
+			float: right;
+			font-size: 22px;
+			line-height: 20px;
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+	<div class="red">
+		<div class="closebtn" onclick="this.parentElement.style.display='none';">&times;</div>
+		<strong>Danger!</strong> Indicates a dangerous or potentially negative action.
+	</div>
+	<div class="red green">
+		<div class="closebtn" onclick="this.parentElement.style.display='none';">&times;</div>
+		<strong>Danger!</strong> Indicates a dangerous or potentially negative action.
+	</div>
+	<div class="red blue">
+		<div class="closebtn" onclick="this.parentElement.style.display='none';">&times;</div>
+		<strong>Danger!</strong> Indicates a dangerous or potentially negative action.
+	</div>
+	<div class="red orange">
+		<div class="closebtn" onclick="this.parentElement.style.display='none';">&times;</div>
+		<strong>Danger!</strong> Indicates a dangerous or potentially negative action.
+	</div>
+</body>
+</html>

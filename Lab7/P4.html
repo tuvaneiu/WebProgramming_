@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Create a To Do List</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<script src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
+
+	<style type="text/css">
+		ul {
+			margin: 0;
+			padding: 0;
+		}
+		ul li {
+			cursor: pointer;
+			position: relative;
+			padding: 12px 8px 12px 40px;
+			background: #eee;
+			transition: 0.2s;
+			font-size: 18px;
+			user-select: none;
+		}
+		ul li:nth-child(odd) {
+			background: #f9f9f9;
+		}
+		ul li:hover {
+			background: #ddd;
+		}
+		ul li.checked {
+			background: black;
+			color: white;
+			text-decoration: line-through;
+		}
+		ul li.checked div {
+			color: white;
+		}
+		ul li.checked:before {
+			content: '';
+			position: absolute;
+			border-color: #fff;
+			border-style: solid;
+			border-width: 0 2px 2px 0;
+			top: 15px;
+			left: 16px;
+			transform: rotate(45deg);
+			height: 15px;
+			width: 7px;
+		}
+		.close {
+			position: absolute;
+			right: 0;
+			top: 0;
+			padding: 12px 16px;
+			height: 100%;
+		}
+		.close:hover {
+			background-color: black;
+			color: white;
+		}
+		.top {
+			background-color: black;
+			padding: 30px 40px;
+			color: white;
+			text-align: center;
+		}
+		.top:after {
+			content: "";
+			display: table;
+			clear: both;
+		}
+		input {
+			border: none;
+			width: 75%;
+			padding: 10px;
+			float: left;
+			font-size: 16px;
+		}
+		.addBtn {
+			padding: 10px;
+			width: 25%;
+			background: #d9d9d9;
+			color: #555;
+			float: left;
+			text-align: center;
+			font-size: 16px;
+			cursor: pointer;
+			transition: 0.3s;
+		}
+		.addBtn:hover {
+			background-color: #bbb;
+		}
+	</style>
+</head>
+<body>
+	<div id="myDIV" class="top">
+		<h2>My To Do List</h2>
+		<input type="text" id="myInput" placeholder="What do you want to do?">
+		<div onclick="newElement()" class="addBtn">Add</div>
+	</div>
+
+	<ul id="myUL">
+		<li>Hit the gym</li>
+		<li>Play game</li>
+		<li>Meet Superman</li>
+		<li>Buy eggs</li>
+		<li>Read a book</li>
+		<li>Organize room</li>
+	</ul>
+
+	<script type="text/javascript">
+		let listLI = document.getElementsByTagName("LI");
+		for (var i = 0; i < listLI.length; i++) {
+			createClose(listLI[i]);
+			clickCheck(listLI[i]);
+		}
+
+		function createClose(i) {
+			let div = document.createElement("DIV");
+			let txt = document.createTextNode("\u00D7");
+			div.className = "close";
+			div.append(txt);
+			i.append(div);
+			clickClose(div);
+		}
+
+		function clickClose(i) {
+			i.onclick = function() {
+				let div = this.parentElement;
+				div.style.display = "none";
+			}
+		}
+
+		function clickCheck(i) {
+			i.onclick = function () {
+				this.classList.toggle("checked");
+			}
+		}
+
+		function newElement() {
+			let li = document.createElement("li");
+			let inputValue = document.getElementById("myInput").value;
+			let t = document.createTextNode(inputValue);
+			li.append(t);
+			if (inputValue === '') {
+				alert("You must write something!");
+			} else {
+				document.getElementById("myUL").append(li);
+			}
+			document.getElementById("myInput").value = "";
+
+			createClose(li);
+			clickCheck(li);
+		}
+	</script>
+</body>
+</html>

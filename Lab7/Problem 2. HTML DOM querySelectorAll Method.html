@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>HTML DOM querySelectorAll() Method</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<script src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
+	<style>
+		a[target] {
+			background-color: yellow;
+		}
+	</style>
+</head>
+<body>
+	<h2 class="example">A heading with class="example"</h2>
+	<p class="example">A paragraph with class="example".</p>
+	<p class="example">Another paragraph with class="example".</p> 
+	<h3>A h3 element</h3>
+	<p>Click the button to add a background color to the first p element (index 0) in the document with class="example".</p>
+
+	<hr>
+
+	<div class="example">
+		A div with class="example"
+	</div>
+	<div class="example">
+		Another div with class="example"
+	</div>
+	<p class="example">This is a p element with class="example".</p>
+	<p>This is a <span class="example">span</span> element with class="example" inside another p element.</p>
+	<p>Click the button to change a margin and a padding and add a border of all elements with class="example".</p>
+
+	<hr>
+	
+	<p>The CSS selector a[target] makes sure that all links with a target attribute gets a yellow background:</p>
+	<a href="https://www.w3schools.com">w3schools.com</a>
+	<a href="http://www.disney.com" target="_blank">disney.com</a>
+	<a href="http://www.wikipedia.org" target="_top">wikipedia.org</a>
+	<p>Click the button to add a red border and remove the underline to all links in the document with a target attribute.</p>
+
+	<hr>
+
+	<h1 class="Title">A H1 element</h1>
+	<h2 class="Title">A H2 element</h2>
+	<div class="Title">A DIV element</div>
+	<p>A p element.</p>
+	<p>A p element with a <span style="color:brown;">span</span> element inside.</p>
+	<p>Click the button to change the color of all h1 and h2 elements with class Title.</p>
+
+	<hr>
+
+	<button id="change">Change</button>
+
+	<script>
+		$('#change').on("click", function () {
+			$('p.example:first').css({"background-color": "red"});
+			$('.example').css({"margin": "10px", "padding": "10px", "border": "2px solid black"});
+			$('a[target]').css({"border": "2px solid red", "text-decoration": "none"});
+			$('h1.Title, h2.Title').css({"color": "red"});
+		})
+	</script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Progress Bar</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<script src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
+
+	<style>
+		#progress {
+			background-color: #ddd;
+		}
+
+		#bar {
+			width: 19%;
+			height: 30px;
+			background-color: #4CAF50;
+			text-align: center;
+			line-height: 30px;
+			color: white;
+		}
+	</style>
+</head>
+<body>
+	<section class="container">
+		<h1>JavaScript Progress Bar</h1>
+
+		<div id="progress">
+			<div id="bar">19%</div>
+		</div>
+
+		<br>
+		<button onclick="move()">Click Me</button> 
+	</section>
+
+	<script>
+		let processing = 0;
+		function move() {
+			if (processing==0) {
+				processing=1;
+				let bar = document.getElementById("bar");
+				let width = 19;
+				let id = setInterval(percent, 20);
+				function percent() {
+					if (width < 100) {
+						width++;
+						bar.style.width = width + "%";
+						bar.innerHTML = width  + "%";
+					}else{
+						processing=0;
+						clearInterval(id);
+					}
+				}
+			}
+		}
+	</script>
+</body>
+</html>
