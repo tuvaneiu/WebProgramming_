@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Full screen overlay navigation</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<script src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
+
+	<style type="text/css">
+		#myModal {
+			display: none; 
+			position: fixed;
+			padding-top: 100px;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			background-color: rgba(0,0,0,0.8);
+		}
+		a{
+			font-size: 80px;
+			color: grey;
+			display: block;
+			width: 20%;
+		}
+		a:hover{
+			text-decoration: none;
+			color: white;
+		}
+		#closebtn {
+			position: absolute;
+			top: 0px;
+			right: 15px;
+			color: white;
+			font-size: 65px;
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+	<button id="myBtn"><i class="fa fa-bars" aria-hidden="true"></i> Open</button>
+	<div id="myModal">
+		<a href="javascript:void(0)">About</a>
+		<a href="javascript:void(0)">Services</a>
+		<a href="javascript:void(0)">Clients</a>
+		<a href="javascript:void(0)">Contact</a>
+		<div id="closebtn">&times;</div>
+	</div>
+
+	<script type="text/javascript">
+		$("#myBtn").click(function () {
+			$("#myModal").css({"display": "block"});
+		});
+
+		$("#closebtn").click(function () {
+			$(this).parent().css({"display": "none"});
+		});
+	</script>
+</body>
+</html>

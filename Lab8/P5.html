@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Responsive Navigation</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<script src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
+
+	<style type="text/css">
+		nav{
+			background-color: black;
+			position: relative;
+		}
+		a{
+			display: block;
+			padding: 20px 10px;
+			color: white;
+			font-size: 31px;
+			width: 100%;
+		}
+		li{
+			display: inline-block;
+		}
+		ul{
+			padding: 0;
+			margin: 0;
+		}
+		a:hover{
+			color: white;
+			text-decoration: none;
+			background-color: green;
+		}
+		div{
+			position: absolute;
+			top: 0;
+			right: 0;
+			color: black;
+			padding: 20px 30px;
+			background-color: white;
+			font-size: 31px;
+			display: none;
+		}
+		@media only screen and (max-width: 700px){
+			li{
+				display: block;
+			}
+			li:not(:first-child){
+				display: none;
+			}
+			div{
+				display: block;
+			}
+		}
+	</style>
+</head>
+<body>
+	<nav>
+		<ul>
+			<li><a href="javascript:void(0)">Home</a></li>
+			<li><a href="javascript:void(0)">News</a></li>
+			<li><a href="javascript:void(0)">Contact</a></li>
+			<li><a href="javascript:void(0)">About</a></li>
+		</ul>
+		<div><i class="fa fa-bars" aria-hidden="true"></i></div>
+	</nav>
+
+	<script type="text/javascript">
+		$("div").click(function () {
+			$("li:not(:first-child)").toggle("slow");
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Dialog</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<script src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
+
+	<style type="text/css">
+		.close {
+			position: absolute;
+			right: 5px;
+			top: 0;
+			cursor: pointer;
+		}
+		#myDialog{
+			position: relative;
+		}
+		b{
+			background-color: #e9e9e9;
+			width: 100%;
+			padding: 10px 5px;
+			display: block;
+		}
+		dialog{
+			padding: 0;
+			width: 20%;
+		}
+		#ok{
+			text-align: right;
+			margin-bottom: 10px;
+			margin-right: 10px;
+		}
+	</style>
+</head>
+<body>
+	<button id="show">Show dialog</button>
+	<dialog id="myDialog">
+		<b>Download complete</b>
+		<i class="fa fa-check-circle" aria-hidden="true"> hhhhhhhhhhhhhhhhhhhh</i>
+		<p>jhhhhhhhhhhhhhhhhhhhhhhh</p>
+		<div class="close">&times;</div>
+		<hr>
+		<div id="ok"><button>OK</button></div>
+	</dialog>
+
+	<script>
+		$("#show").click(function () {
+			$("#myDialog").show(1000);
+		});
+		$("#ok button").click(function () {
+			$("#myDialog").hide(1000);
+		});
+		$(".close").click(function () {
+			$("#myDialog").hide(1000);
+		});
+	</script>
+</body>
+</html>
