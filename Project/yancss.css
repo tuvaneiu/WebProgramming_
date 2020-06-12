@@ -1,0 +1,403 @@
+#top{
+	background-color: red;
+}
+#div_logo{
+	background-color: white;
+	transform: skew(-45deg);
+}
+#logo{
+	margin-top: 20px;
+	margin-left: 25px;
+	transform: skew(45deg);
+}
+@media only screen and (min-width: 1350px){
+	#top{
+		height: 40px;
+	}
+}
+@media only screen and (max-width: 700px){
+	#div_logo{
+		text-align: center;
+	}
+	#logo{
+		margin-right: 25px;
+	}
+}
+.white_text{
+	color: white;
+}
+#haymeman{
+	float: left;
+	padding-top: 8px;
+	padding-right: 35px;
+}
+#haymeman a{
+	text-decoration: none;
+}
+#tuyendung{
+	float: left;
+	padding-top: 8px;
+}
+#tuyendung a{
+	text-decoration: none;
+}
+.breadcrumb{
+	background-color: white;
+}
+.breadcrumb-item a{
+	color: black;
+	text-decoration: none;
+}
+.breadcrumb-item a:hover{
+	color: red;
+}
+#search{
+	height: 46px;
+	width: 200px;
+	border-color: red;
+}
+.btn-danger{
+	height: 45px;
+}
+#ft-nav{
+	background-color: red;
+}
+#ft-nav-w{
+	color: white;
+	padding: 10px;
+	text-decoration: none;
+}
+#ft-mid{
+	background-color: #303030;
+}
+#ft-mid-left-item{
+	width: 25%;
+	float: left;
+	padding-top: 20px;
+}
+.clearLeft{
+	clear: left;
+}
+.clearRight{
+	clear: right;
+}
+#ft-mid-right{
+	padding-top: 20px;
+}
+#ft-mid-title{
+	color: red;
+}
+#ft-mid a i{
+	color: red;
+}
+#ft-mid dt a{
+	color: white;
+}
+#ft-mid dt a:hover{
+	text-decoration: none;
+	color: red;
+}
+#ft-mid dt{
+	padding-top: 15px;
+}
+#ft-bot{
+	color: white;
+	background-color: black;
+}
+#ft-bot-left{
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+#ft-bot-right{
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+.clearAfter:after{
+	content: "";
+	display: block;
+	clear: both;
+	height: 0;
+}
+.clearBefore:before{
+	content: "";
+	display: block;
+	clear: both;
+	height: 0;
+}
+#ft-bot h5{
+	margin-bottom: 20px;
+}
+#fixed-sec{
+	width: 40px;
+	position: fixed;
+	right: 10px;
+	top: 40%;
+	background-color: white;
+	border-radius: 24px;
+	box-shadow: 3.5px 3.5px 5px 0 rgba(0,0,0,0.2);
+}
+#fixed-sec article a img{
+	display: block;
+	margin-right: auto;
+	margin-left: auto;
+}
+#main-img{
+	border-radius: 5px;
+	width: 100%!important;
+	position: relative;
+}
+#red-i{
+	color: red;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+#red-i b{
+	color: black;
+}
+#main-top-news-top{
+	margin-bottom: 20px;
+	position: relative;
+}
+#description{
+	font-size: 14px;
+	color: grey;
+}
+#main-title{
+	color: black;
+}
+#main-title:hover{
+	color: red;
+	text-decoration: none;
+}
+#main-new-item{
+	margin-bottom: 20px;
+}
+#matop{
+	margin-top: 10px;
+}
+#mabot{
+	margin-bottom: 10px;
+}
+#playvi{
+	color: red;
+	font-size: 40px;
+	position: absolute;
+	right: 47%;
+	bottom: 40%;
+}
+#option{
+	color: black;
+}
+#option:hover{
+	text-decoration: none;
+	color: red;
+}
+#option img{
+	border-radius: 5px;
+	width: 100%!important;
+	margin-bottom: 7px;
+}
+#butt a button{
+	color: red;
+	font-size: 18px;
+	font-weight: 600;
+	border: 2px solid red;
+	border-radius: 6px;
+	padding: 10px 30px;
+}
+#butt{
+	text-align: center;
+	margin-bottom: 20px;
+}
+.img-mar{
+	margin-bottom: 20px;
+}
+#main-right-title{
+	color: black;
+	font-size: 14px;
+	font-weight: 700;
+}
+#main-right-title:hover{
+	text-decoration: none;
+	color: red;
+}
+.feat-blur{
+	position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    color: white;
+    font-weight: 600;
+    padding: 0 15px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    padding-top: 30px;
+}
+.feat-blur p:hover{
+	color: red;
+}
+.bot-blur{
+	background-image: linear-gradient(to top,black,transparent);
+}
+#fb-page{
+	margin-bottom: 20px;
+}
+#link-fb{
+	text-align: center;
+}
+#other-title{
+	font-size: 18px;
+    font-weight: 700;
+    color: black;
+    margin-bottom: 5px;
+}
+#other-text{
+	font-size: 15px;
+	color: black;
+}
+#list-others-item a:hover{
+	text-decoration: none;
+}
+#list-others-item a #other-title:hover{
+	color: red;
+}
+#list-others-item{
+	margin-bottom: 10px;
+}
+#app-img{
+	height: 100%;
+	width: 100%;
+	margin-bottom: 20px;
+}
+#link-site a img{
+	width: 100%;
+	height: 100%;
+	border-radius: 5px;
+}
+#app-yan{
+	margin-bottom: 20px;
+}
+#bot-item-title{
+	font-size: 18px;
+	font-weight: 700;
+	color: black;
+}
+#bot-item-title:hover{
+	text-decoration: none;
+	color: red;
+}
+#bot-sm-item-title{
+	font-size: 14px;
+	font-weight: 700;
+	color: black;
+	box-sizing: border-box;
+}
+@media only screen and (max-width: 700px){
+	#bot-sm-item-title{
+		font-size: 18px;
+	}
+}
+#bot-sm-item-title:hover{
+	text-decoration: none;
+	color: red;
+}
+#main-bot-item{
+	margin-bottom: 20px;
+}
+#main-bot-img{
+	width: 100%!important;
+	border-radius: 5px;
+}
+#bot-mar-img{
+	margin-bottom: 7px;
+}
+#main-bot-img-adv{
+	width: 90%!important;
+	border-radius: 5px;
+}
+#top-slide{
+	background-color: #EEEEEE;
+	padding-right: 0;
+	padding-left: 0;
+	padding-top: 30px;
+	padding-bottom: 30px;
+}
+@media only screen and (max-width: 700px){
+	.mySlides a article p{
+		font-size: 11px;
+	}
+}
+#dot-site{
+	text-align: center;
+}
+.mySlides{
+	display: none;
+	position: relative;
+	width: 30%;
+	margin-left: auto;
+	margin-right: auto;
+}
+.mySlides-block{
+	display: block;
+}
+@media only screen and (max-width: 700px){
+	.mySlides{
+		width: 70%;
+	}
+}
+.prev{
+	cursor: pointer;
+	position: absolute;
+	top: 40%;
+	left: 0;
+	padding: 10px;
+	color: white;
+	font-weight: bold;
+	font-size: 20px;
+	transition: 0.6s ease;
+	border-radius: 10%;
+	user-select: none;
+}
+.next{
+	right: 0;
+	border-radius: 10%;
+	cursor: pointer;
+	position: absolute;
+	top: 40%;
+	padding: 10px;
+	color: white;
+	font-weight: bold;
+	font-size: 20px;
+	transition: 0.6s ease;
+	user-select: none;
+}
+@media only screen and (max-width: 700px){
+	.prev, .next{
+		font-size: 11px;
+	}
+}
+.prev:hover, .next:hover {
+	background-color: rgba(0,0,0,0.8);
+}
+.dot{
+	cursor: pointer;
+	height: 15px;
+	width: 15px;
+	margin: 0 2px;
+	background-color: #bbb;
+	border-radius: 50%;
+	display: inline-block;
+	transition: background-color 0.6s ease;
+}
+.active, .dot:hover {
+	background-color: #717171;
+}
+#top-slide-con{
+	position: relative;
+}
+#slide-img{
+	border-radius: 5px;
+	width: 100%!important;
+	position: relative;
+}
