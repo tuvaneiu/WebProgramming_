@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Student Management System</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
+
+	<!-- <link rel="stylesheet" href="./bootstrap.min.css">
+
+	<script src="./jquery-3.5.1.min.js"></script>
+	<script src="./popper.min.js"></script>
+	<script src="./bootstrap.min.js"></script> -->
+
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<style type="text/css">
+		#class-list{
+			border: 1px solid black;
+		}
+		ul{
+			padding-left: 60px;
+		}
+		h2{
+			font-size: 50px;
+			margin-top: 10px;
+		}
+		a{
+			color: black;
+		}
+		a:hover{
+			text-decoration: none;
+			color: red;
+		}
+		#show-list{
+			padding: 10px;
+			border: 1px solid black;
+		}
+		#add-zone{
+			border: 1px solid black;
+			margin-bottom: 10px;
+		}
+		#add-zone p{
+			padding: 10px;
+			margin: 0;
+			background-color: #f7f7f7;
+		}
+		#search-zone{
+			border: 1px solid black;
+			margin-bottom: 10px;
+		}
+		#search-zone p{
+			padding: 10px;
+			margin: 0;
+			background-color: #f7f7f7;
+		}
+		#edit-zone{
+			display: none;
+			border: 1px solid black;
+			margin-bottom: 10px;
+		}
+		#edit-zone p{
+			padding: 10px;
+			margin: 0;
+			background-color: #f7f7f7;
+		}
+		#fill-zone{
+			padding: 10px;
+		}
+		#fill-zone input, select{
+			margin-right: 20px;
+		}
+		#list-zone{
+			margin-top: 20px;
+		}
+		#list-zone p{
+			padding: 10px;
+			margin: 0;
+			background-color: #f7f7f7;
+		}
+	</style>
+</head>
+<body>
+	<section class="container">
+		<section class="row">
+			<section class="col-md-3">
+				<section id="class-list">
+					<h2>Class list</h2>
+					<ul id="list-li">
+					</ul>
+				</section>
+			</section>
+			<section class="col-md-9">
+				<section id="show-list">
+					<section id="add-zone">
+						<p>Add student</p>
+						<section id="fill-zone">
+							<input type="text" name="id" id="id" placeholder="Id...">
+							<input type="text" name="name" id="name" placeholder="Name...">
+							<select name="catecode" id="cate-code">
+								<option value="Samsung" selected="selected">Samsung</option>
+								<option value="Apple">Apple</option>
+							</select>
+							<input type="button" name="add" id="add" value="Add">
+						</section>
+					</section>
+					<section id="search-zone">
+						<p>Search student by name</p>
+						<section id="fill-zone">
+							<input type="text" name="search" id="searchVal" placeholder="Search...">
+							<input type="button" name="search" id="search" value="Search">
+						</section>
+					</section>
+					<section id="edit-zone">
+						<p>Edit student's infomation</p>
+						<section id="fill-zone">
+							<input type="text" name="idEdit" id="idEdit" placeholder="Id...">
+							<input type="text" name="nameEdit" id="nameEdit" placeholder="Name...">
+							<select name="catecodeEdit" id="cate-codeEdit">
+								<option value="Samsung" selected="selected">Samsung</option>
+								<option value="Apple">Apple</option>
+							</select>
+							<input type="button" name="update" id="update" value="Update">
+						</section>
+					</section>
+					<section id="list-zone">
+						<p>Student List</p>
+						<table class="table">
+							<thead>
+								<tr>
+									<th scope="col">#</th>
+									<th scope="col">Full Name</th>
+									<th scope="col">Student ID</th>
+									<th scope="col">Function</th>
+								</tr>
+							</thead>
+							<tbody id="showing">
+							</tbody>
+						</table>
+					</section>
+				</section>
+			</section>
+		</section>
+	</section>
+
+	<script type="text/javascript">
+		let dsLop;
+		let dsSP;
+
+		$(document).ready(function () {
+			jQuery.get("http://66.42.50.227/data-ajax.php", {GetProducts:"Brand"})
+            .done(function(r){
+            	dsLop = JSON.parse(r);
+                for (var i = 0; i < dsLop.length; i++) {
+                	$("#list-li").append(`<li><a href="javascript:void(0)" id="${dsLop[i].BrandCode}">${dsLop[i].BrandName}</a></li>`)
+                }
+            });
+
+
+            jQuery.get("http://66.42.50.227/data-ajax.php", {GetProducts:"All"})
+            .done(function(r){
+            	dsSP = JSON.parse(r);
+            	dsSP.sort(function (a,b){
+                    if ( a.Name < b.Name ){
+                        return -1;
+                    }
+                    if ( a.Name > b.Name ){
+                        return 1;
+                    }
+                    return 0;
+                });
+                loadPro();
+            });
+
+            $("#showing").on("click", ".del", function () {
+            	var _id = $(this).attr("id");
+            	var _confirm = confirm("Are you sure?")
+            	if (_confirm) {
+            		for (var i = 0; i < dsSP.length; i++) {
+	            		if (dsSP[i].Code == _id) {
+	            			dsSP.splice(i, 1);
+	            			break;
+	            		}
+	            	}
+	            	$("#showing").empty();
+	            	loadPro();
+            	}
+            });
+
+            let codeIndexEdit;
+
+            $("#showing").on("click", ".edit", function () {
+            	$("#search-zone").css({"display": "none"});
+            	$("#add-zone").css({"display": "none"});
+            	$("#edit-zone").css({"display": "block"});
+
+            	var _id = $(this).attr("id");
+            	for (var i = 0; i < dsSP.length; i++) {
+            		if (dsSP[i].Code == _id) {
+            			codeIndexEdit = dsSP[i].Code;
+            			$("#idEdit").val(dsSP[i].Code);
+            			$("#nameEdit").val(dsSP[i].Name);
+            			$("#cate-codeEdit").val(dsSP[i].CateCode);
+            			break;
+            		}
+            	}
+            });
+
+            $("#update").click(function () {
+            	var _confirm = confirm("Are you sure?")
+            	if (_confirm) {
+            		for (var i = 0; i < dsSP.length; i++) {
+	            		if (dsSP[i].Code == codeIndexEdit) {
+	            			dsSP[i].Name = $("#nameEdit").val();
+	            			dsSP[i].Code = $("#idEdit").val();
+	            			dsSP[i].CateCode = $("#cate-codeEdit").val();
+	            			break;
+	            		}
+	            	}
+	            	$("#idEdit").val("");
+            		$("#nameEdit").val("");
+            		$("#cate-codeEdit").val("Samsung");
+
+            		$("#search-zone").css({"display": "block"});
+	            	$("#add-zone").css({"display": "block"});
+	            	$("#edit-zone").css({"display": "none"});
+
+	            	$("#showing").empty();
+	            	loadPro();
+            	}
+            });
+
+            $("#search").click(function () {
+            	var searchVal = $("#searchVal").val().toLowerCase();
+            	$("#showing").empty();
+            	for (var i = 0; i < dsSP.length; i++) {
+            		var lower = dsSP[i].Name.toLowerCase();
+            		if (lower.indexOf(searchVal) > -1) {
+            			$("#showing").append(`
+						<tr>
+							<th scope="row">${i+1}</th>
+							<td>${dsSP[i].Name}</td>
+							<td>${dsSP[i].Code}</td>
+							<td>
+								<button class="edit" id="${dsSP[i].Code}">Edit</button>
+								<button class="del" id="${dsSP[i].Code}">Delete</button>
+							</td>
+						</tr>
+						`);
+            		}
+            	}
+            	$("#searchVal").val("");
+            });
+
+            $("#add").click(function () {
+            	var id = $("#id").val();
+            	var name = $("#name").val();
+            	var cate = $("#cate-code").val();
+
+            	dsSP.unshift({Code: id, Name: name, Price: 0, Quantity: 0, Description: "", ImageURL: "", CateCode: cate});
+
+            	$("#id").val("");
+            	$("#name").val("");
+            	$("#cate-code").val("Samsung");
+
+            	$("#showing").empty();
+            	loadPro();
+            });
+
+            $("#list-li").on("click", "#Samsung", function () {
+            	loadBrand("Samsung");
+            });
+
+            $("#list-li").on("click", "#Apple", function () {
+            	loadBrand("Apple");
+            });
+		});
+
+		function loadBrand(brand) {
+			$("#showing").empty();
+			for (var i = 0; i < dsSP.length; i++) {
+        		if (dsSP[i].CateCode == brand) {
+        			$("#showing").append(`
+					<tr>
+						<th scope="row">${i+1}</th>
+						<td>${dsSP[i].Name}</td>
+						<td>${dsSP[i].Code}</td>
+						<td>
+							<button class="edit" id="${dsSP[i].Code}">Edit</button>
+							<button class="del" id="${dsSP[i].Code}">Delete</button>
+						</td>
+					</tr>
+					`);
+        		}
+        	}
+		}
+
+		function loadPro() {
+			for (var i = 0; i < dsSP.length; i++) {
+				$("#showing").append(`
+				<tr>
+					<th scope="row">${i+1}</th>
+					<td>${dsSP[i].Name}</td>
+					<td>${dsSP[i].Code}</td>
+					<td>
+						<button class="edit" id="${dsSP[i].Code}">Edit</button>
+						<button class="del" id="${dsSP[i].Code}">Delete</button>
+					</td>
+				</tr>
+				`);
+			}
+		}
+	</script>
+</body>
+</html>
