@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Student Management System</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="./bootstrap.min.css">
+	<script src="./jquery-3.5.1.min.js"></script>
+	<script src="./popper.min.js"></script>
+	<script src="./bootstrap.min.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<style type="text/css">
+		#class-list{
+			border: 1px solid black;
+			background-color: rgb(204,205,204);
+			height: 100%;
+		}
+		ul{
+			padding-left: 60px;
+		}
+		h2{
+			font-size: 50px;
+			margin-top: 10px;
+		}
+		a{
+			color: black;
+		}
+		a:hover{
+			text-decoration: none;
+			color: red;
+		}
+		#show-list{
+			padding: 10px;
+			border: 1px solid black;
+		}
+		#add-zone{
+			border: 1px solid rgb(204,205,204);
+			margin-bottom: 10px;
+		}
+		#add-zone p{
+			padding: 10px;
+			margin: 0;
+			background-color: #f7f7f7;
+		}
+		#search-zone{
+			margin-bottom: 10px;
+			text-align: right;
+		}
+		#search-zone p{
+			padding: 10px;
+			margin: 0;
+			background-color: #f7f7f7;
+		}
+		#fill-zone{
+			padding: 10px;
+		}
+		#fill-zone input, select{
+			margin-right: 20px;
+		}
+		#list-zone{
+			margin-top: 20px;
+		}
+		#list-zone p{
+			padding: 10px;
+			margin: 0;
+			background-color: #f7f7f7;
+		}
+		header{
+			background-color: black;
+			padding-left: 20px;
+			color: white;
+			padding-bottom: 20px;
+			padding-top: 20px;
+			font-weight: bold;
+		}
+		header p{
+			padding: 0;
+			margin: 0;
+		}
+		footer p{
+			padding: 0;
+			margin: 0;
+		}
+		footer{
+			background-color: black;
+			padding-left: 20px;
+			color: white;
+			padding-bottom: 20px;
+			padding-top: 20px;
+			font-weight: bold;
+			text-align: center;
+		}
+		select{
+			width: 170px;
+		}
+		.del{
+			border-color: red;
+			color: red;
+		}
+	</style>
+</head>
+<body>
+	<header>
+		<p>CIT - STUDENT MANAGEMENT SYSTEM</p>
+	</header>
+	<section id="mid">
+		<section class="row">
+			<section class="col-md-2">
+				<section id="class-list">
+					<h2>Class list</h2>
+					<ul id="list-li">
+					</ul>
+				</section>
+			</section>
+			<section class="col-md-10">
+				<section id="show-list">
+					<section id="add-zone">
+						<p>Add a new student</p>
+						<section id="fill-zone">
+							<input type="text" name="first" id="first" placeholder="First name...">
+							<input type="text" name="last" id="last" placeholder="Last name...">
+							<input type="text" name="email" id="email" placeholder="Email...">
+							<select name="catecode" id="class-code">
+								<option value="Class 1" selected="selected">Class 1</option>
+								<option value="Class 2">Class 2</option>
+								<option value="Class 3">Class 3</option>
+							</select>
+							<input type="button" name="add" id="add" value="Add">
+						</section>
+					</section>
+					<section id="search-zone">
+						<section id="fill-zone">
+							<input type="text" name="search" id="searchVal" placeholder="Student Name">
+							<input type="button" name="search" id="search" value="Search">
+						</section>
+					</section>
+					<section id="list-zone">
+						<p>Student List</p>
+						<table class="table">
+							<thead>
+								<tr>
+									<th scope="col">#</th>
+									<th scope="col">First Name</th>
+									<th scope="col">Last Name</th>
+									<th scope="col">Email</th>
+									<th scope="col">Class</th>
+									<th scope="col">Function</th>
+								</tr>
+							</thead>
+							<tbody id="showing">
+							</tbody>
+						</table>
+					</section>
+				</section>
+			</section>
+		</section>
+	</section>
+	<footer>
+		<p>jahfefyegfyef</p>
+	</footer>
+
+	<script type="text/javascript">
+		let dsLop;
+		let dsHS;
+
+		$(document).ready(function () {
+			jQuery.get("http://66.42.50.227/getdata.php", {Type:"Class"})
+            .done(function(r){
+            	dsLop = JSON.parse(r);
+                for (var i = 0; i < dsLop.length; i++) {
+                	$("#list-li").append(`<li><a href="javascript:void(0)" id="${dsLop[i]}">${dsLop[i]}</a></li>`)
+                }
+                console.log(dsLop);
+            });
+
+
+            jQuery.get("http://66.42.50.227/getdata.php", {Type:"Student"})
+            .done(function(r){
+            	dsHS = JSON.parse(r);
+            	dsHS.sort(function (a,b){
+                    if ( a.FistName < b.FistName ){
+                        return -1;
+                    }
+                    if ( a.FistName > b.FistName ){
+                        return 1;
+                    }
+                    return 0;
+                });
+                loadHS();
+            });
+
+            $("#showing").on("click", ".del", function () {
+            	var _id = $(this).attr("id");
+            	var _confirm = confirm("Are you sure?")
+            	if (_confirm) {
+            		for (var i = 0; i < dsHS.length; i++) {
+	            		if (dsHS[i].LastName == _id) {
+	            			dsHS.splice(i, 1);
+	            			break;
+	            		}
+	            	}
+	            	$("#showing").empty();
+	            	loadHS();
+            	}
+            });
+
+            $("#search").click(function () {
+            	var searchVal = $("#searchVal").val().toLowerCase();
+            	$("#showing").empty();
+            	for (var i = 0; i < dsHS.length; i++) {
+            		var lower = dsHS[i].LastName.toLowerCase();
+            		if (lower.indexOf(searchVal) > -1) {
+            			$("#showing").append(`
+						<tr>
+							<th scope="row">${i+1}</th>
+							<td>${dsHS[i].FistName}</td>
+							<td>${dsHS[i].LastName}</td>
+							<td>${dsHS[i].Email}</td>
+							<td>${dsHS[i].Class}</td>
+							<td>
+								<button class="del" id="${dsHS[i].LastName}">Delete</button>
+							</td>
+						</tr>
+						`);
+            		}
+            	}
+            	$("#searchVal").val("");
+            });
+
+            $("#add").click(function () {
+            	var first = $("#first").val();
+            	var last = $("#last").val();
+            	var email = $("#email").val();
+            	var _class = $("#class-code").val();
+
+            	dsHS.unshift({ID: "", FistName: first, LastName: last, Email: email, Class: _class});
+
+            	$("#first").val("");
+            	$("#last").val("");
+            	$("#email").val("");
+            	$("#class-code").val("Class 1");
+
+            	$("#showing").empty();
+            	loadHS();
+            });
+
+            $("#list-li").on("click", "#Class 1", function () {
+            	loadClass("1");
+            });
+
+            $("#list-li").on("click", "#Class 2", function () {
+            	loadClass("2");
+            });
+
+            $("#list-li").on("click", "#Class 3", function () {
+            	loadClass("3");
+            });
+		});
+
+		function loadClass(_class) {
+			$("#showing").empty();
+			for (var i = 0; i < dsHS.length; i++) {
+        		if (dsHS[i].Class.indexOf(_class) > -1) {
+        			$("#showing").append(`
+					<tr>
+						<th scope="row">${i+1}</th>
+						<td>${dsHS[i].FistName}</td>
+						<td>${dsHS[i].LastName}</td>
+						<td>${dsHS[i].Email}</td>
+						<td>${dsHS[i].Class}</td>
+						<td>
+							<button class="del" id="${dsHS[i].LastName}">Delete</button>
+						</td>
+					</tr>
+					`);
+        		}
+        	}
+		}
+
+		function loadHS() {
+			for (var i = 0; i < dsHS.length; i++) {
+				$("#showing").append(`
+				<tr>
+					<th scope="row">${i+1}</th>
+					<td>${dsHS[i].FistName}</td>
+					<td>${dsHS[i].LastName}</td>
+					<td>${dsHS[i].Email}</td>
+					<td>${dsHS[i].Class}</td>
+					<td>
+						<button class="del" id="${dsHS[i].LastName}">Delete</button>
+					</td>
+				</tr>
+				`);
+			}
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Gallery Section</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="./bootstrap.min.css">
+	<script src="./jquery-3.5.1.min.js"></script>
+	<script src="./popper.min.js"></script>
+	<script src="./bootstrap.min.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<style type="text/css">
+		.item-img{
+			width: 100%;
+		}
+		.top{
+			margin-top: 10px;
+			border: 1px solid black;
+		}
+		.expand{
+			position: relative;
+			padding-left: 15%;
+			display: none;
+			height: 500px;
+			margin-top: 20px;
+		}
+		#expandedImg{
+			width: 75%;
+		}
+		.borderImg{
+			border: 2px solid rgb(204,205,204);
+			margin-top: 10px;
+			width: 50%;
+		}
+		.borderImg:last-child{
+			margin-bottom: 10px;
+		}
+		.active{
+			border: 2px solid rgb(24,158,255);
+		}
+	</style>
+</head>
+<body>
+	<section class="container">
+		<div class="top">
+			<div class="row">
+				<div class="col-md-3">
+					<div class="col-md-12">
+						<div class="borderImg">
+							<img class="item-img" src="./vanvanthanhtu1.jpg" alt="Nature" onclick="myFunction(this);">
+						</div>
+					</div>
+					<div class="col-md-12">
+						<div class="borderImg">
+							<img class="item-img" src="./vanvanthanhtu2.jpg" alt="Nature" onclick="myFunction(this);">
+						</div>
+					</div>
+					<div class="col-md-12">
+						<div class="borderImg">
+							<img class="item-img" src="./vanvanthanhtu3.jpg" alt="Nature" onclick="myFunction(this);">
+						</div>
+					</div>
+					<div class="col-md-12">
+						<div class="borderImg">
+							<img class="item-img" src="./vanvanthanhtu4.jpg" alt="Nature" onclick="myFunction(this);">
+						</div>
+					</div>
+					<div class="col-md-12">
+						<div class="borderImg">
+							<img class="item-img" src="./vanvanthanhtu5.jpg" alt="Nature" onclick="myFunction(this);">
+						</div>
+					</div>
+				</div>
+				<div class="col-md-9">
+					<div class="expand">
+						<img id="expandedImg" src="">
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<script>
+		let expandImg = document.getElementById("expandedImg");
+		let imgs = document.getElementsByClassName("borderImg");
+
+		function myFunction(img) {
+			for (var i = 0; i < imgs.length; i++) {
+				imgs[i].className = imgs[i].className.replace(" active", "");
+			}
+			img.parentElement.className += " active";
+			expandImg.src = img.src;
+			expandImg.parentElement.style.display = "block";
+		}
+	</script>
+</body>
+</html>
